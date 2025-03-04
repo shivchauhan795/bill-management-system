@@ -1,12 +1,38 @@
-# React + Vite
+## Tasks to be done
+- login form page
+    - email, password with validation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- customer table
+    - client name
+    - product quantity
+    - billing date
+    - contact details
+    - address
+    - billing price
 
-Currently, two official plugins are available:
+- side navbar
+    - customer list
+    - bill generator
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- bill generator ui
+    - customer name
+    - customer mobile number
+    - customer address
+    - billing date
+    - add new input field (button)
+        - product name
+        - product quantity
+        - product price
+        - total price
 
-## Expanding the ESLint configuration
+- toast on button for showing success with message
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- download invoice
+
+- bill data should be added to customer list (in point 2) after success
+
+## Assignment requires:
+
+- redux for state management
+- clean & responsive UI/UX
+- everything above should be added
