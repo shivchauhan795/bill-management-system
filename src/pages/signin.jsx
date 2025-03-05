@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signin = () => {
   const emailRef = useRef(null);
@@ -13,6 +14,7 @@ const Signin = () => {
 
     if (!email || !password) {
       console.log("Please fill in the details");
+      toast.error('Please fill in the details');
       return;
     }
 
@@ -22,14 +24,17 @@ const Signin = () => {
     if (userExists) {
       localStorage.setItem("currentUser", JSON.stringify(userExists));
       console.log("Sign In Successful");
+      toast.success('Sign In Successful');
       navigate('/dashboard');
     } else {
       console.log("Invalid email or password");
+      toast.error('Invalid email or password');
     }
   };
 
   return (
     <div className='flex justify-center items-center h-screen'>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className='flex flex-col justify-evenly items-center gap-7 border-2 p-10 rounded-2xl'>
         <div className='text-2xl uppercase font-bold flex justify-center'>Sign In</div>
         <div className='flex flex-col gap-4 justify-center'>

@@ -1,11 +1,13 @@
 import React, { useRef } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-
+const navigate = useNavigate();
   const handleSignup = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
@@ -24,22 +26,27 @@ const Signup = () => {
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     if (!passwordPattern.test(password)) {
       console.log("Password must contain at least 8 characters, one letter, one number, and one special character.");
+      toast.error('Password must contain at least 8 characters, one letter, one number, and one special character.');
       return;
     }
 
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
     if (storedUsers.some(user => user.email === email)) {
       console.log("Email is already registered");
+      toast.error('Email is already registered');
       return;
     }
 
     storedUsers.push({ email, password });
     localStorage.setItem("users", JSON.stringify(storedUsers));
     console.log("Sign Up Successful");
+    toast.success('Sign Up Successful');
+    navigate('/signin');
   };
 
   return (
     <div className='flex justify-center items-center h-screen'>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className='flex flex-col justify-evenly items-center gap-7 border-2 p-10 rounded-2xl'>
         <div className='text-2xl uppercase font-bold flex justify-center'>Sign Up</div>
         <div className='flex flex-col gap-4 justify-center'>
