@@ -1,6 +1,4 @@
 import './App.css'
-import Signin from './pages/Signin.jsx'
-import Signup from './pages/Signup.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import BillGenerator from './pages/BillGenerator.jsx'
 import CustomerTable from './pages/CustomerTable.jsx'
